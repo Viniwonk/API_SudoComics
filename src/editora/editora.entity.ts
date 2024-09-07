@@ -1,12 +1,10 @@
-import { listaQuadrinhoDTO } from "src/quadrinho/dto/listaQuadrinho.dto";
-
 export class EditoraEntity{
     id: string;
     nome: string;
     logo: string;
-    quadrinho: listaQuadrinhoDTO[];
+    quadrinho: string; //momentaneo até a criação do banco de dados
 
-    constructor(id:string, nome:string, logo:string,quadrinho: listaQuadrinhoDTO[]) {
+    constructor(id:string, nome:string, logo:string,quadrinho: string) {
         this.id = id;
         this.nome = nome;
         this.logo = logo;

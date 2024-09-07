@@ -1,5 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { EditoraEntity } from "./editora.entity";
+import { AlteraEditoraDTO } from "./dto/alteraEditora";
 
 @Injectable()
    export class EditoraArmazenada {
@@ -19,4 +20,24 @@ import { EditoraEntity } from "./editora.entity";
         return possivelQuadrinho;
     }
 
+    alteraEditora(id:string, dadosNovos:AlteraEditoraDTO){
+        const possivelEditora = this.pesquisaID(id);
+        Object.entries(dadosNovos).forEach(([chave,valor]) => {
+            if(chave === 'id'){
+                return;
+            }
+            possivelEditora[chave] = valor;
+        });
+    }
+
+    removeEditora(id:string){
+        const editora = this.pesquisaID(id);
+        this.editoras = this.editoras.filter(
+            (editoraSalva) => editoraSalva.id !== id
+        );
+        return editora;
+    }
+    get Editoras (){
+        return this.editoras;
+    }
    }
