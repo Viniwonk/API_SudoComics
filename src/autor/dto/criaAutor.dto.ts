@@ -5,14 +5,14 @@ import { IsNotEmpty, IsString } from "class-validator";
 export class CriaAutorDTO{
     @IsString()
     @IsNotEmpty()
-    @ApiProperty({example: "Marvel",
+    @ApiProperty({example: 'Jorisvaldo o Cartunista',
                   description: "O nome do autor do quadrinho a ser inserido"})
     nome: string;
 
     @IsString()
     @IsNotEmpty()
     @ApiProperty({example: "Imagem",
-                  description: "O fototipo do autor do quadrinho a ser inserido"})
+                  description: "O beleza do autor do quadrinho a ser inserida"})
     foto: string;
 
     //classe quadrinho momentânea só para parar de dar erro
